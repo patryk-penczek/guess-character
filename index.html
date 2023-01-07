@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/images/icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/images/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/images/icons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/assets/images/icons/site.webmanifest" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Guess Character</title>
+  </head>
+  <body>
+    <div class="menu">
+      <div class="menuContainer">
+        <h1>Guess Character</h1>
+        <button class="startButton">Graj</button>
+        <button class="settingsButton">Ustawienia</button>
+      </div>
+    </div>
+
+    <div class="settings">
+      <div class="settingsContainer">
+        <audio class="audio" autoplay loop>
+          <source src="assets/music/electroswing.mp3" type="audio/mpeg" />
+        </audio>
+        <h1>Ustawienia</h1>
+        <hr />
+        <h2>Muzyka:</h2>
+        <div class="volumeControls">
+          <input
+            type="range"
+            class="volumeSlider"
+            min="0"
+            max="100"
+            step="10"
+            value="30"
+          />
+        </div>
+        <div class="volumeDisplay"></div>
+        <hr />
+        <button class="backtomenuButton">Powrót do menu</button>
+      </div>
+    </div>
+    <div class="game">
+      <div class="gameContainer">
+        <div class="characterImage"></div>
+
+        <form class="form">
+          <input
+            type="text"
+            class="answerInput"
+            placeholder="Podaj nazwę postaci"
+            autocomplete="off"
+          />
+          <button type="submit" class="submitButton">Zatwierdź</button>
+        </form>
+        <hr />
+        <div class="hintMenu">
+          <button class="hintButton">🔑</button>
+          <div class="message">Liczba punktów: 0</div>
+          <div class="hint" style="display: none">Podpowiedź:</div>
+        </div>
+        <hr />
+        <div class="timer">
+          <span class="timerPercent">Pozostało 20 sekund</span>
+          <div class="timerBar"></div>
+        </div>
+      </div>
+    </div>
+    <div class="gameOver" style="display: none">
+      <div class="overContainer">
+        <div class="gameOverText">
+          <h1 class="gameOverMessage"></h1>
+          <h2 class="gameOverSubmessage"></h2>
+        </div>
+        <button class="restartButton">Zagraj ponownie</button>
+      </div>
+    </div>
+    <script src="characters.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

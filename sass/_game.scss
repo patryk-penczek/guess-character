@@ -1,0 +1,117 @@
+.game {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  background-image: $backgroundImage;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .gameContainer {
+    background: rgba(8, 13, 20, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(255, 241, 183, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 10%;
+    .characterImage {
+      background-size: cover;
+      background-position: center;
+      background-color: white;
+      width: 300px;
+      height: 300px;
+      border: 2px solid $thirdColor;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 16px 0 rgba(255, 213, 92, 0.4);
+    }
+    .form {
+      width: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      .answerInput {
+        box-shadow: 0 1px 4px 0 $fourthColor;
+        width: 180px;
+        font-size: 16px;
+        border: none;
+        padding: 5px;
+      }
+      .submitButton {
+        width: 90px;
+        padding: 4px;
+        color: white;
+        background-color: $firstColor;
+        font-family: $font;
+        font-size: 16px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 1px 4px 0 rgba(255, 213, 92, 0.4);
+      }
+      .submitButton:hover {
+        background-color: lighten($firstColor, $amount: 3);
+        box-shadow: 0 1px 4px 0 rgba(255, 213, 92, 0.7);
+      }
+    }
+    hr {
+      color: $thirdColor;
+      margin: 4px 0px;
+    }
+    .hintMenu {
+      color: white;
+      text-align: center;
+      width: 290px;
+      padding: 5px;
+      .hintButton {
+        background-color: transparent;
+        text-shadow: 0 0 8px $thirdColor;
+        font-size: 20px;
+        border: none;
+        cursor: pointer;
+      }
+      .message {
+        margin: 4px 0px 8px 0px;
+        font-size: 18px;
+      }
+      .hint {
+        font-weight: 500;
+        font-size: 20px;
+      }
+    }
+    .timer {
+      margin-top: 20px;
+      width: 300px;
+      border: 1px solid $thirdColor;
+      position: relative;
+      padding: 3px;
+    }
+
+    .timerPercent {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      color: white;
+    }
+
+    .timerBar {
+      height: 18px;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        $secondColor 10px,
+        $secondColor 20px
+      );
+      width: 100%;
+    }
+  }
+}

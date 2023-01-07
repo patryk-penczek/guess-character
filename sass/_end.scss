@@ -1,0 +1,67 @@
+.gameOver {
+  width: 100%;
+  height: 100vh;
+  background-image: $backgroundImage;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .overContainer {
+    background: rgba(8, 13, 20, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(255, 241, 183, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 10%;
+    .gameOverText {
+      flex-direction: column;
+      position: relative;
+      .gameOverMessage {
+        font-size: 70px;
+        background-color: $firstColor;
+        position: relative;
+        text-align: center;
+        color: $thirdColor;
+        box-shadow: 0 2px 8px 0 $thirdColor;
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+      }
+      .gameOverSubmessage {
+        font-size: 35px;
+        position: relative;
+        text-align: center;
+        color: white;
+        padding: 10px;
+        margin-bottom: 50px;
+      }
+    }
+    .restartButton {
+      width: 100%;
+      height: 50px;
+      color: white;
+      background-color: $firstColor;
+      font-family: $font;
+      font-size: 30px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 1px 4px 0 $fourthColor;
+    }
+    .restartButton:hover {
+      background-color: lighten($firstColor, $amount: 3);
+      box-shadow: 0 2px 8px 0 $fourthColor;
+    }
+    .menuAnimation {
+      animation: fade-out-bck 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+  }
+}

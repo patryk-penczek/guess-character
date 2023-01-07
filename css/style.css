@@ -1,0 +1,475 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.menu {
+  width: 100%;
+  height: 100vh;
+  background-image: url("/assets/images/menu.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.menu .menuContainer {
+  background: rgba(8, 13, 20, 0.3);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(255, 241, 183, 0.4);
+          box-shadow: 0 8px 32px 0 rgba(255, 241, 183, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 10%;
+}
+.menu .menuContainer h1 {
+  font-size: 70px;
+  background-color: rgb(8, 13, 20);
+  position: relative;
+  text-align: center;
+  color: rgb(255, 213, 92);
+  -webkit-box-shadow: 0 2px 8px 0 rgb(255, 213, 92);
+          box-shadow: 0 2px 8px 0 rgb(255, 213, 92);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.menu .menuContainer .startButton, .menu .menuContainer .settingsButton {
+  width: 100%;
+  height: 50px;
+  color: white;
+  background-color: rgb(8, 13, 20);
+  font-family: "Bakbak One", cursive;
+  font-size: 30px;
+  border-radius: 10px;
+  margin-top: 30px;
+  border: none;
+  cursor: pointer;
+  -webkit-box-shadow: 0 1px 4px 0 rgb(255, 241, 183);
+          box-shadow: 0 1px 4px 0 rgb(255, 241, 183);
+}
+.menu .menuContainer .startButton:hover, .menu .menuContainer .settingsButton:hover {
+  background-color: #0c141f;
+  -webkit-box-shadow: 0 2px 8px 0 rgb(255, 241, 183);
+          box-shadow: 0 2px 8px 0 rgb(255, 241, 183);
+}
+.menu .menuContainer .menuAnimation {
+  -webkit-animation: fade-out-bck 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: fade-out-bck 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes fade-out-bck {
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateZ(-80px);
+            transform: translateZ(-80px);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out-bck {
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateZ(-80px);
+            transform: translateZ(-80px);
+    opacity: 0;
+  }
+}
+.settings {
+  width: 100%;
+  height: 100vh;
+  background-image: url("/assets/images/menu.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: white;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.settings .menuAnimation {
+  -webkit-animation: fade-out-bck 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: fade-out-bck 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.settings .settingsContainer {
+  text-align: center;
+  height: auto;
+  background-color: white;
+  border-radius: 20px;
+  background: rgba(8, 13, 20, 0.3);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(255, 241, 183, 0.35);
+          box-shadow: 0 8px 32px 0 rgba(255, 241, 183, 0.35);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 30px;
+  margin-bottom: 10%;
+}
+.settings .settingsContainer h1 {
+  font-size: 50px;
+  color: rgb(255, 213, 92);
+  background-color: rgb(8, 13, 20);
+  position: relative;
+  text-align: center;
+  color: rgb(255, 213, 92);
+  -webkit-box-shadow: 0 2px 8px 0 rgb(255, 241, 183);
+          box-shadow: 0 2px 8px 0 rgb(255, 241, 183);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 40px;
+}
+.settings .settingsContainer h2 {
+  color: white;
+  font-size: 22px;
+}
+.settings .settingsContainer hr {
+  margin: 15px 0px;
+  color: rgb(255, 213, 92);
+}
+.settings .settingsContainer .backtomenuButton {
+  width: 100%;
+  height: 50px;
+  color: white;
+  background-color: rgb(8, 13, 20);
+  font-family: "Bakbak One", cursive;
+  font-size: 25px;
+  border-radius: 10px;
+  margin-top: 30px;
+  border: none;
+  cursor: pointer;
+  -webkit-box-shadow: 0 1px 4px 0 rgb(255, 241, 183);
+          box-shadow: 0 1px 4px 0 rgb(255, 241, 183);
+}
+.settings .settingsContainer .backtomenuButton:hover {
+  background-color: #0c141f;
+  -webkit-box-shadow: 0 2px 8px 0 rgb(255, 241, 183);
+          box-shadow: 0 2px 8px 0 rgb(255, 241, 183);
+}
+.settings .settingsContainer .audio::-webkit-media-controls {
+  display: none;
+}
+.settings .settingsContainer .volumeControls {
+  margin: 8px 0px;
+}
+.settings .settingsContainer .volumeControls .volumeSlider {
+  width: 300px;
+  height: 5px;
+  background: white;
+  outline: none;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+.settings .settingsContainer .volumeControls .volumeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+          appearance: none;
+  width: 20px;
+  height: 20px;
+  background: white;
+  cursor: pointer;
+}
+.settings .settingsContainer .volumeControls .volumeSlider::-moz-range-thumb {
+  border-radius: 50px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  cursor: pointer;
+}
+.settings .settingsContainer .volumeDisplay {
+  font-size: 22px;
+  color: white;
+}
+
+@keyframes fade-out-bck {
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateZ(-80px);
+            transform: translateZ(-80px);
+    opacity: 0;
+  }
+}
+.game {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  background-image: url("/assets/images/menu.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: white;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.game .gameContainer {
+  background: rgba(8, 13, 20, 0.3);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(255, 241, 183, 0.4);
+          box-shadow: 0 8px 32px 0 rgba(255, 241, 183, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 10%;
+}
+.game .gameContainer .characterImage {
+  background-size: cover;
+  background-position: center;
+  background-color: white;
+  width: 300px;
+  height: 300px;
+  border: 2px solid rgb(255, 213, 92);
+  border-radius: 20px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0 4px 16px 0 rgba(255, 213, 92, 0.4);
+          box-shadow: 0 4px 16px 0 rgba(255, 213, 92, 0.4);
+}
+.game .gameContainer .form {
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 20px;
+}
+.game .gameContainer .form .answerInput {
+  -webkit-box-shadow: 0 1px 4px 0 rgb(255, 241, 183);
+          box-shadow: 0 1px 4px 0 rgb(255, 241, 183);
+  width: 180px;
+  font-size: 16px;
+  border: none;
+  padding: 5px;
+}
+.game .gameContainer .form .submitButton {
+  width: 90px;
+  padding: 4px;
+  color: white;
+  background-color: rgb(8, 13, 20);
+  font-family: "Bakbak One", cursive;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  -webkit-box-shadow: 0 1px 4px 0 rgba(255, 213, 92, 0.4);
+          box-shadow: 0 1px 4px 0 rgba(255, 213, 92, 0.4);
+}
+.game .gameContainer .form .submitButton:hover {
+  background-color: #0c141f;
+  -webkit-box-shadow: 0 1px 4px 0 rgba(255, 213, 92, 0.7);
+          box-shadow: 0 1px 4px 0 rgba(255, 213, 92, 0.7);
+}
+.game .gameContainer hr {
+  color: rgb(255, 213, 92);
+  margin: 4px 0px;
+}
+.game .gameContainer .hintMenu {
+  color: white;
+  text-align: center;
+  width: 290px;
+  padding: 5px;
+}
+.game .gameContainer .hintMenu .hintButton {
+  background-color: transparent;
+  text-shadow: 0 0 8px rgb(255, 213, 92);
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+.game .gameContainer .hintMenu .message {
+  margin: 4px 0px 8px 0px;
+  font-size: 18px;
+}
+.game .gameContainer .hintMenu .hint {
+  font-weight: 500;
+  font-size: 20px;
+}
+.game .gameContainer .timer {
+  margin-top: 20px;
+  width: 300px;
+  border: 1px solid rgb(255, 213, 92);
+  position: relative;
+  padding: 3px;
+}
+.game .gameContainer .timerPercent {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+.game .gameContainer .timerBar {
+  height: 18px;
+  background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgb(16, 32, 43) 10px, rgb(16, 32, 43) 20px);
+  width: 100%;
+}
+
+.gameOver {
+  width: 100%;
+  height: 100vh;
+  background-image: url("/assets/images/menu.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.gameOver .overContainer {
+  background: rgba(8, 13, 20, 0.3);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(255, 241, 183, 0.4);
+          box-shadow: 0 8px 32px 0 rgba(255, 241, 183, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 10%;
+}
+.gameOver .overContainer .gameOverText {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+.gameOver .overContainer .gameOverText .gameOverMessage {
+  font-size: 70px;
+  background-color: rgb(8, 13, 20);
+  position: relative;
+  text-align: center;
+  color: rgb(255, 213, 92);
+  -webkit-box-shadow: 0 2px 8px 0 rgb(255, 213, 92);
+          box-shadow: 0 2px 8px 0 rgb(255, 213, 92);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+.gameOver .overContainer .gameOverText .gameOverSubmessage {
+  font-size: 35px;
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 10px;
+  margin-bottom: 50px;
+}
+.gameOver .overContainer .restartButton {
+  width: 100%;
+  height: 50px;
+  color: white;
+  background-color: rgb(8, 13, 20);
+  font-family: "Bakbak One", cursive;
+  font-size: 30px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  -webkit-box-shadow: 0 1px 4px 0 rgb(255, 241, 183);
+          box-shadow: 0 1px 4px 0 rgb(255, 241, 183);
+}
+.gameOver .overContainer .restartButton:hover {
+  background-color: #0c141f;
+  -webkit-box-shadow: 0 2px 8px 0 rgb(255, 241, 183);
+          box-shadow: 0 2px 8px 0 rgb(255, 241, 183);
+}
+.gameOver .overContainer .menuAnimation {
+  -webkit-animation: fade-out-bck 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: fade-out-bck 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+body {
+  font-family: "Bakbak One", cursive;
+}/*# sourceMappingURL=style.css.map */
