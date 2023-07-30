@@ -8,7 +8,8 @@ characters = [
   { name: "Wario", image: "assets/characters/wario.webp" },
   { name: "Donkey Kong", image: "assets/characters/donkey_kong.webp" },
   { name: "Diddy Kong", image: "assets/characters/diddy_kong.webp" },
-  // Pokemony
+
+  // Pokemons
   { name: "Pikachu", image: "assets/characters/pikachu.webp" },
   { name: "Jigglypuff", image: "assets/characters/jigglypuff.webp" },
   { name: "Mewtwo", image: "assets/characters/mewtwo.webp" },
@@ -16,12 +17,14 @@ characters = [
   { name: "Squirtle", image: "assets/characters/squirtle.webp" },
   { name: "Bulbasaur", image: "assets/characters/bulbasaur.webp" },
   { name: "Snorlax", image: "assets/characters/snorlax.webp" },
+
   // Sonic
   { name: "Sonic", image: "assets/characters/sonic.webp" },
   { name: "Tails", image: "assets/characters/tails.webp" },
   { name: "Knuckles", image: "assets/characters/knuckles.webp" },
   { name: "Shadow", image: "assets/characters/shadow.webp" },
-  // Wiedźmin
+
+  // Witcher
   { name: "Geralt", image: "assets/characters/geralt.webp" },
   { name: "Triss", image: "assets/characters/triss.webp" },
   { name: "Yennefer", image: "assets/characters/yennefer.webp" },
@@ -33,6 +36,7 @@ characters = [
   { name: "Eredin", image: "assets/characters/eredin.webp" },
   { name: "Priscilla", image: "assets/characters/priscilla.webp" },
   { name: "Jaskier", image: "assets/characters/jaskier.webp" },
+
   // Gta:
   { name: "Tommy", image: "assets/characters/tommy.webp" },
   { name: "CJ", image: "assets/characters/cj.webp" },
@@ -48,6 +52,7 @@ characters = [
   { name: "Solomon", image: "assets/characters/solomon.webp" },
   { name: "Martin", image: "assets/characters/martin.webp" },
   { name: "Simeon", image: "assets/characters/simeon.webp" },
+
   // Minecraft
   { name: "Steve", image: "assets/characters/steve.webp" },
   { name: "Alex", image: "assets/characters/alex.webp" },
@@ -55,6 +60,7 @@ characters = [
   { name: "Enderman", image: "assets/characters/enderman.webp" },
   { name: "Ghast", image: "assets/characters/ghast.webp" },
   { name: "Herobrine", image: "assets/characters/herobrine.webp" },
+
   // League of Legends
   { name: "Ahri", image: "assets/characters/ahri.webp" },
   { name: "Ezreal", image: "assets/characters/ezreal.webp" },
@@ -68,9 +74,11 @@ characters = [
   { name: "Singed", image: "assets/characters/singed.webp" },
   { name: "Warwick", image: "assets/characters/warwick.webp" },
   { name: "Teemo", image: "assets/characters/teemo.webp" },
+
   // The Last of Us
   { name: "Joel", image: "assets/characters/joel.webp" },
   { name: "Ellie", image: "assets/characters/ellie.webp" },
+
   // God of War
   { name: "Kratos", image: "assets/characters/kratos.webp" },
 ];

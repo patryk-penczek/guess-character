@@ -40,13 +40,13 @@ const startGame = () => {
     gameDiv.style.display = "none";
     gameOver = 1;
     gameOverDiv.style.display = "flex";
-    gameOverMessage.innerHTML = "Gratulacje!";
-    gameOverSubmessage.innerHTML = `Twój wynik to: ${score}`;
+    gameOverMessage.innerHTML = "Congratulations!";
+    gameOverSubmessage.innerHTML = `Your score is: ${score}`;
   }
   percent = 100;
   const timer = setInterval(() => {
     percent -= 5;
-    timerPercent.innerHTML = "Pozostało " + percent / 5 + " sekund";
+    timerPercent.innerHTML = percent / 5 + " seconds left";
     timerBar.style.width = percent + "%";
     if (timerBar.style.width <= "0%" && gameOver == 0) {
       clearInterval(timer);
@@ -58,8 +58,8 @@ const startGame = () => {
 const endGame = () => {
   gameDiv.style.display = "none";
   gameOverDiv.style.display = "flex";
-  gameOverMessage.innerHTML = "Koniec czasu!";
-  gameOverSubmessage.innerHTML = `Twój wynik to: ${score}`;
+  gameOverMessage.innerHTML = "Time is up!";
+  gameOverSubmessage.innerHTML = `Your score is: ${score}`;
 };
 
 const submitAnswer = (event) => {
@@ -70,13 +70,21 @@ const submitAnswer = (event) => {
     const audioCorrect = new Audio("assets/music/correct.mp3");
     audioCorrect.play();
     const messages = [
-      "Brawo!",
-      "Super!",
-      "Świetna odpowiedź!",
-      "Dobrze!",
-      "Świetnie!",
-      "Nieźle!",
-      "Świetna odpowiedź!",
+      "Impressive work!",
+      "Outstanding!",
+      "You did it!",
+      "Great job!",
+      "Well done!",
+      "Fantastic effort!",
+      "You're on fire!",
+      "Exceptional performance!",
+      "Brilliant!",
+      "Bravo!",
+      "Outstanding!",
+      "Great response!",
+      "Amazing work!",
+      "You got it!",
+      "Keep it up!",
     ];
     const showMessage = () => {
       const message = messages[Math.floor(Math.random() * messages.length)];
@@ -97,24 +105,32 @@ const submitAnswer = (event) => {
       gameDiv.style.display = "none";
       gameOver = 1;
       gameOverDiv.style.display = "flex";
-      gameOverMessage.innerHTML = "Gratulacje!";
-      gameOverSubmessage.innerHTML = `Twój wynik to: ${score}`;
+      gameOverMessage.innerHTML = "Congratulations!";
+      gameOverSubmessage.innerHTML = `Your score is: ${score}`;
     }
     characterImage.style.backgroundImage = `url(${currentCharacter.image})`;
     percent = 100;
-    timerPercent.innerHTML = "Pozostało 20 sekund";
+    timerPercent.innerHTML = "20 seconds left";
     timerBar.style.width = "100%";
   } else {
     const audioIncorrect = new Audio("assets/music/incorrect.mp3");
     audioIncorrect.play();
     const messages = [
-      "Nie ta postać!",
-      "Błędna odpowiedź!",
-      "Zła odpowiedź!",
-      "Pomyłka!",
-      "Niepoprawna odpowiedź!",
-      "Niestety nie ta postać!",
-      "Ups, zła postać!",
+      "Wrong character!",
+      "Incorrect answer!",
+      "Bad answer!",
+      "Mistake!",
+      "Incorrect response!",
+      "Unfortunately, not the right character!",
+      "Oops, wrong character!",
+      "Try again!",
+      "Not quite there!",
+      "Close, but not quite!",
+      "Keep practicing!",
+      "You're getting warmer!",
+      "Not the answer we're looking for!",
+      "Not quite on target!",
+      "That's not it, but don't give up!",
     ];
     const showMessage = () => {
       const message = messages[Math.floor(Math.random() * messages.length)];
@@ -132,7 +148,7 @@ const submitAnswer = (event) => {
 };
 
 function showPoints() {
-  messageDiv.innerHTML = `Liczba punktów: ${score}`;
+  messageDiv.innerHTML = `Your score is: ${score}`;
   messageDiv.style.display = "block";
 }
 
@@ -141,7 +157,7 @@ const useHint = () => {
     setTimeout(() => {
       showPoints();
     }, 1500);
-    messageDiv.innerHTML = `Wykorzystano podpowiedź!`;
+    messageDiv.innerHTML = `Hint used!`;
     score -= 1;
     hintIndex++;
     hintDiv.innerHTML = currentCharacter.name
@@ -159,7 +175,7 @@ const useHint = () => {
     setTimeout(() => {
       showPoints();
     }, 1500);
-    messageDiv.innerHTML = `Nie masz wystarczająco punktów!`;
+    messageDiv.innerHTML = `You don't have enough points!`;
   }
 };
 
@@ -172,9 +188,9 @@ const restartGame = () => {
   hintIndex = 0;
   startButton.classList.remove("menuAnimation");
   percent = 100;
-  timerPercent.innerHTML = "Pozostało 20 sekund";
+  timerPercent.innerHTML = "20 seconds left";
   timerBar.style.width = "100%";
-  messageDiv.innerHTML = `Liczba punktów: ${score}`;
+  messageDiv.innerHTML = `Your score is: ${score}`;
 };
 
 const settings = () => {
