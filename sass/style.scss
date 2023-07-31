@@ -6,4 +6,13 @@
 
 body {
   font-family: $font;
+  margin: 0;
+  padding: 0;
+  background: $backgroundImage no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: white;
+  letter-spacing: 1px;
 }

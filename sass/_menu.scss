@@ -1,14 +1,6 @@
 .menu {
   width: 100%;
   height: 100vh;
-  background-image: $backgroundImage;
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-position: center;
-  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,9 +14,8 @@
     padding: 30px;
     margin-bottom: 10%;
     h1 {
-      font-size: 70px;
+      font-size: 50px;
       background-color: $firstColor;
-      position: relative;
       text-align: center;
       color: $thirdColor;
       box-shadow: 0 2px 8px 0 $thirdColor;
