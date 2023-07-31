@@ -1,13 +1,18 @@
+import characters from "./characters.js";
+import correctMessages from "./correctMessages.js";
+import incorrectMessages from "./incorrectMessages.js";
+
+let timer;
 let gameOver = 0;
 let score = 0;
-let hintIndex = 0;
+let usedHintsCount = 0;
 let currentCharacter;
 let percent = 100;
 
 const menuDiv = document.querySelector(".menu");
 const settingsDiv = document.querySelector(".settings");
 const settingsButton = document.querySelector(".settingsButton");
-const backtomenuButton = document.querySelector(".backtomenuButton");
+const backToMenuButton = document.querySelector(".backtomenuButton");
 const audio = document.querySelector(".audio");
 const volumeSlider = document.querySelector(".volumeSlider");
 const volumeDisplay = document.querySelector(".volumeDisplay");
@@ -15,7 +20,6 @@ const gameDiv = document.querySelector(".game");
 const characterImage = document.querySelector(".characterImage");
 const form = document.querySelector(".form");
 const answerInput = document.querySelector(".answerInput");
-const submitButton = document.querySelector(".submitButton");
 const hintButton = document.querySelector(".hintButton");
 const messageDiv = document.querySelector(".message");
 const hintDiv = document.querySelector(".hint");
@@ -37,146 +41,105 @@ const startGame = () => {
   );
   characters.splice(index, 1);
   if (characters.length === 0) {
-    gameDiv.style.display = "none";
-    gameOver = 1;
-    gameOverDiv.style.display = "flex";
-    gameOverMessage.innerHTML = "Congratulations!";
-    gameOverSubmessage.innerHTML = `Your score is: ${score}`;
+    endGame();
+    return;
   }
   percent = 100;
-  const timer = setInterval(() => {
-    percent -= 5;
-    timerPercent.innerHTML = percent / 5 + " seconds left";
-    timerBar.style.width = percent + "%";
-    if (timerBar.style.width <= "0%" && gameOver == 0) {
-      clearInterval(timer);
-      endGame();
-    }
-  }, 1000);
+  timer = setInterval(updateTimerBar, 1000);
 };
 
 const endGame = () => {
+  clearInterval(timer);
   gameDiv.style.display = "none";
   gameOverDiv.style.display = "flex";
-  gameOverMessage.innerHTML = "Time is up!";
+  gameOverMessage.innerHTML = "Congratulations!";
   gameOverSubmessage.innerHTML = `Your score is: ${score}`;
+};
+
+const updateTimerBar = () => {
+  percent -= 5;
+  timerPercent.innerHTML = percent / 5 + " seconds left";
+  timerBar.style.width = percent + "%";
+  if (percent <= 0 && gameOver === 0) {
+    endGame();
+  }
 };
 
 const submitAnswer = (event) => {
   event.preventDefault();
   const answer = answerInput.value;
-  if (answer.toLowerCase() === currentCharacter.name.toLowerCase()) {
-    score += 1;
-    const audioCorrect = new Audio("assets/music/correct.mp3");
-    audioCorrect.play();
-    const messages = [
-      "Impressive work!",
-      "Outstanding!",
-      "You did it!",
-      "Great job!",
-      "Well done!",
-      "Fantastic effort!",
-      "You're on fire!",
-      "Exceptional performance!",
-      "Brilliant!",
-      "Bravo!",
-      "Outstanding!",
-      "Great response!",
-      "Amazing work!",
-      "You got it!",
-      "Keep it up!",
-    ];
-    const showMessage = () => {
-      const message = messages[Math.floor(Math.random() * messages.length)];
-      messageDiv.innerHTML = message;
-      setTimeout(() => {
-        messageDiv.style.display = "none";
-        showPoints();
-      }, 1500);
-    };
-    showMessage();
-    currentCharacter =
-      characters[Math.floor(Math.random() * characters.length)];
-    const index = characters.findIndex(
-      (character) => character.name === currentCharacter.name
-    );
-    characters.splice(index, 1);
-    if (characters.length === 0) {
-      gameDiv.style.display = "none";
-      gameOver = 1;
-      gameOverDiv.style.display = "flex";
-      gameOverMessage.innerHTML = "Congratulations!";
-      gameOverSubmessage.innerHTML = `Your score is: ${score}`;
-    }
-    characterImage.style.backgroundImage = `url(${currentCharacter.image})`;
-    percent = 100;
-    timerPercent.innerHTML = "20 seconds left";
-    timerBar.style.width = "100%";
+  const correctAnswer = currentCharacter.name.toLowerCase();
+
+  if (answer.toLowerCase() === correctAnswer) {
+    handleCorrectGuess();
   } else {
-    const audioIncorrect = new Audio("assets/music/incorrect.mp3");
-    audioIncorrect.play();
-    const messages = [
-      "Wrong character!",
-      "Incorrect answer!",
-      "Bad answer!",
-      "Mistake!",
-      "Incorrect response!",
-      "Unfortunately, not the right character!",
-      "Oops, wrong character!",
-      "Try again!",
-      "Not quite there!",
-      "Close, but not quite!",
-      "Keep practicing!",
-      "You're getting warmer!",
-      "Not the answer we're looking for!",
-      "Not quite on target!",
-      "That's not it, but don't give up!",
-    ];
-    const showMessage = () => {
-      const message = messages[Math.floor(Math.random() * messages.length)];
-      messageDiv.innerHTML = message;
-      setTimeout(() => {
-        messageDiv.style.display = "none";
-        showPoints();
-      }, 1500);
-    };
-    showMessage();
+    handleIncorrectGuess();
   }
   answerInput.value = "";
   hintDiv.style.display = "none";
-  hintIndex = 0;
+  usedHintsCount = 0;
 };
 
-function showPoints() {
+const handleCorrectGuess = () => {
+  score += 1;
+  const audioCorrect = new Audio("assets/music/correct.mp3");
+  audioCorrect.play();
+  showRandomMessage(correctMessages);
+  handleNextCharacter();
+};
+
+const handleIncorrectGuess = () => {
+  const audioIncorrect = new Audio("assets/music/incorrect.mp3");
+  audioIncorrect.play();
+  showRandomMessage(incorrectMessages);
+};
+
+const showRandomMessage = (messages) => {
+  const message = messages[Math.floor(Math.random() * messages.length)];
+  messageDiv.innerHTML = message;
+  setTimeout(() => {
+    messageDiv.style.display = "none";
+    showPoints();
+  }, 1500);
+};
+
+const showPoints = () => {
   messageDiv.innerHTML = `Your score is: ${score}`;
   messageDiv.style.display = "block";
-}
+};
 
 const useHint = () => {
   if (score >= 1) {
-    setTimeout(() => {
-      showPoints();
-    }, 1500);
+    showPoints();
     messageDiv.innerHTML = `Hint used!`;
     score -= 1;
-    hintIndex++;
+    usedHintsCount++;
     hintDiv.innerHTML = currentCharacter.name
       .split("")
-      .map((char, index) => {
-        if (index < hintIndex) {
-          return char;
-        } else {
-          return char === " " ? "  " : "_";
-        }
-      })
+      .map((char, index) =>
+        index < usedHintsCount ? char : char === " " ? "  " : "_"
+      )
       .join("");
     hintDiv.style.display = "block";
   } else {
-    setTimeout(() => {
-      showPoints();
-    }, 1500);
+    showPoints();
     messageDiv.innerHTML = `You don't have enough points!`;
   }
+};
+
+const handleNextCharacter = () => {
+  currentCharacter = characters[Math.floor(Math.random() * characters.length)];
+  characterImage.style.backgroundImage = `url(${currentCharacter.image})`;
+  const index = characters.findIndex(
+    (character) => character.name === currentCharacter.name
+  );
+  characters.splice(index, 1);
+  if (characters.length === 0) {
+    endGame();
+  }
+  percent = 100;
+  timerPercent.innerHTML = "20 seconds left";
+  timerBar.style.width = "100%";
 };
 
 const restartGame = () => {
@@ -185,7 +148,7 @@ const restartGame = () => {
   score = 0;
   hintDiv.innerHTML = "";
   messageDiv.innerHTML = "";
-  hintIndex = 0;
+  usedHintsCount = 0;
   startButton.classList.remove("menuAnimation");
   percent = 100;
   timerPercent.innerHTML = "20 seconds left";
@@ -203,36 +166,36 @@ const menuBack = () => {
   menuDiv.style.display = "flex";
 };
 
-volumeSlider.addEventListener("input", (event) => {
-  handleVolumeChange();
-  audio.volume = event.target.value;
-});
-
 const handleVolumeChange = () => {
   audio.volume = volumeSlider.value / 100;
   volumeDisplay.innerHTML = `${volumeSlider.value}%`;
 };
 
+volumeSlider.addEventListener("input", (event) => {
+  handleVolumeChange();
+  audio.volume = event.target.value;
+});
+
 function init() {
   audio.volume = volumeSlider.value / 100;
   volumeDisplay.innerHTML = `${volumeSlider.value}%`;
 
-  startButton.addEventListener("click", function handleClick(event) {
+  startButton.addEventListener("click", (event) => {
     event.target.classList.add("menuAnimation");
     setTimeout(startGame, 500);
     restartButton.classList.remove("menuAnimation");
   });
-  settingsButton.addEventListener("click", function handleClick(event) {
+  settingsButton.addEventListener("click", (event) => {
     event.target.classList.add("menuAnimation");
     setTimeout(settings, 500);
-    backtomenuButton.classList.remove("menuAnimation");
+    backToMenuButton.classList.remove("menuAnimation");
   });
-  backtomenuButton.addEventListener("click", function handleClick(event) {
+  backToMenuButton.addEventListener("click", (event) => {
     event.target.classList.add("menuAnimation");
     setTimeout(menuBack, 400);
     settingsButton.classList.remove("menuAnimation");
   });
-  restartButton.addEventListener("click", function handleClick(event) {
+  restartButton.addEventListener("click", (event) => {
     event.target.classList.add("menuAnimation");
     setTimeout(restartGame, 400);
   });
@@ -240,4 +203,5 @@ function init() {
   form.addEventListener("submit", submitAnswer);
   hintButton.addEventListener("click", useHint);
 }
+
 window.addEventListener("load", init);

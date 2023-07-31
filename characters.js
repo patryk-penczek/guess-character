@@ -1,4 +1,4 @@
-characters = [
+const characters = [
   // Mario
   { name: "Mario", image: "assets/characters/mario.webp" },
   { name: "Luigi", image: "assets/characters/luigi.webp" },
@@ -82,3 +82,5 @@ characters = [
   // God of War
   { name: "Kratos", image: "assets/characters/kratos.webp" },
 ];
+
+export default characters;
